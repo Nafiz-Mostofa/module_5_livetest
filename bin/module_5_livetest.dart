@@ -10,7 +10,7 @@ void main() {
 
   for (var student in students) {
     String name = student["name"];
-    List<int> scores = List<int>.from(student["scores"]);
+    List<int> scores = student["scores"];
 
     int total = 0;
     for (var score in scores) {
@@ -18,11 +18,11 @@ void main() {
     }
 
     double average = total / scores.length;
-
     averages[name] = double.parse(average.toStringAsFixed(2));
   }
 
   var sortedList = averages.entries.toList();
+
   sortedList.sort((a, b) => b.value.compareTo(a.value));
 
   Map<String, double> sortedAverages = {};
